@@ -14,6 +14,7 @@
 </h:head>
 <h:body>
 	<h:form>
+	<p:growl />
 		<p:panel header="Cadastro de cursos">
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Nome:" />
@@ -31,6 +32,8 @@
 						itemLabel="#{tipo.label}" itemValue="#{tipo}" />
 				</p:selectOneMenu>
 			</p:panelGrid>
+			<p:commandButton value="salvar"  action="#{cursoBean.salvar}"
+			update="@form"/>
 		</p:panel>
 	</h:form>
 
