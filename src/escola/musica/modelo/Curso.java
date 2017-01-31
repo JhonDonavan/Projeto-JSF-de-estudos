@@ -1,12 +1,15 @@
 package escola.musica.modelo;
 
+import java.util.Date;
+
 public class Curso {
 
 	private Integer id;
 	private String nome;
 	private String descricao;
-	private double ducarao;
+	private double ducarao = 1;
 	private TipoCurso tipo;
+	private Date dataCriacao;
 
 	public Integer getId() {
 		return id;
@@ -47,4 +50,14 @@ public class Curso {
 	public void setTipo(TipoCurso tipo) {
 		this.tipo = tipo;
 	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+	
+	
 }
