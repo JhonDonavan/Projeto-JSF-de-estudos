@@ -13,32 +13,46 @@
 	<title>Cadastro de cursos</title>
 </h:head>
 <h:body>
-	<h:form>
-	<p:growl />
-		<p:panel header="Cadastro de cursos">
-			<p:panelGrid columns="2">
+	<h:form id="form-curso">
+		<p:growl />
+		<div align="center"> 
+		<p:panel header="Cadastro de cursos" style="width:60%;">
+			<p:panelGrid columns="2" style="width:90%;">
+
 				<h:outputLabel value="Nome:" />
-				<p:inputText value="#{cursoBean.curso.nome}" />
+				<p:inputText value="#{cursoBean.curso.nome}" required="true"
+					requiredMessage="Voçê deve informar o nome do curso!"
+					validatorMessage="O nome do curso deve ter entre 3 e 15 caracteres!">
+					<f:validateLength minimum="3" maximum="15" />
+				</p:inputText>
+
 				<h:outputLabel value="Descrição:" />
 				<p:inputTextarea value="#{cursoBean.curso.descricao}" cols="40"
-					rows="3" />
+					rows="3" required="true" requiredMessage="Preencha a descrição!" />
+
 				<h:outputLabel value="Duração:" />
-				<p:spinner value="#{cursoBean.curso.ducarao}" min="0"
-					stepFactor="0.5" size="2" />
+				<p:spinner value="#{cursoBean.curso.ducarao}" min="0.5" max="10"
+					stepFactor="0.5" size="2" required="true"
+					requiredMessage="Preencha a duração do curso!" />
+
 				<h:outputLabel value="Tipo:" />
-				<p:selectOneMenu value="#{cursoBean.curso.tipo}">
+				<p:selectOneMenu value="#{cursoBean.curso.tipo}" required="true"
+					requiredMessage="Selecione um tipo de curso!">
 					<f:selectItem itemLabel=":: Selecione ::" itemValue="#{null}" />
 					<f:selectItems value="#{cursoBean.tipos}" var="tipo"
 						itemLabel="#{tipo.label}" itemValue="#{tipo}" />
 				</p:selectOneMenu>
+
 				<h:outputLabel value="Data de criação:" />
 				<p:calendar value="#{cursoBean.curso.dataCriacao}"
-				 pattern="dd/MM/yyyy"/>
+					pattern="dd/MM/yyyy" maxdate="#{cursoBean.dataAtual}" />
 			</p:panelGrid>
-			<br/>
-			<p:commandButton value="salvar"  action="#{cursoBean.salvar}"
-			update="@form"/>
+		<br />
+		<p:commandButton value="salvar" action="#{cursoBean.salvar}"
+			update="@form" />
 		</p:panel>
+		</div>
+		
 	</h:form>
 
 

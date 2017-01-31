@@ -1,7 +1,9 @@
 package escola.musica.Bean;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -26,6 +28,10 @@ public class CursoBean {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
 		
 		return "curso_lista?faces-redirect=true";
+	}
+	
+	public String getDataAtual(){
+		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
 	public Curso getCurso() {
