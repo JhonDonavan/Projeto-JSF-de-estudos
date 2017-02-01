@@ -23,9 +23,13 @@ public class CursoBean {
 	private List<TipoCurso> tipos = Arrays.asList(TipoCurso.values());
 	private List<Curso> cursos = new ArrayList<Curso>();
 	
+	public CursoBean(){
+		cursos = new CursoDAO().listarTodos();
+	}
+	
 	public String salvar(){
 		new CursoDAO().salvar(curso);
-		cursos.add(curso);
+		cursos = new CursoDAO().listarTodos();
 		curso = new Curso();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
 		
