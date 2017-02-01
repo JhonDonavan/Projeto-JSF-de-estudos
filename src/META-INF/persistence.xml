@@ -5,17 +5,23 @@
 	version="1.0">
 
 	<persistence-unit name="banco" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	
+		 	<!-- OBS USAR PROVIDER ABAIXO PARA HIBERNATE MAIS ATUALIZADO (ATUAL 5.2.6) (HIBERNATE.ENTITYMANAGER E HIBERNATE.CORE) -->
+		 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+			<!--	PARA VERSÕES DO HIBERNATE MAIS ANTIGA, SUAR PROVIDER ABAIXO (HIBERNATE.ENTITYMANAGER E HIBERNATE.CORE) -->
+		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.connection.url"
-				value="jdbc:postgresql://127.0.0.1:5432/teste?charSet=LATIN1" />
+				value="jdbc:postgresql://127.0.0.1:5432/escola_JSF?charSet=LATIN1" />
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
 			<property name="hibernate.connection.username" value="postgres" />
 			<property name="hibernate.connection.password" value="postgres" />
 
 			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="update" />
 		</properties>
 
 	</persistence-unit>

@@ -2,8 +2,18 @@ package escola.musica.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+@Entity
 public class Curso {
 
+	@Id
+	@GeneratedValue(generator = "CLIENTE_ID", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "CLIENTE_ID", sequenceName = "SEQ_CLIENTE", allocationSize = 1)
 	private Integer id;
 	private String nome;
 	private String descricao;
@@ -58,6 +68,5 @@ public class Curso {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
-	
+
 }
