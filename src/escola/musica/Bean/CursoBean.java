@@ -25,6 +25,7 @@ public class CursoBean {
 	
 	public CursoBean(){
 		cursos = new CursoDAO().listarTodos();
+		curso = new Curso();
 	}
 	
 	public String salvar(){
