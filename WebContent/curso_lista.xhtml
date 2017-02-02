@@ -14,28 +14,35 @@
 </h:head>
 <h:body>
 	<div align="center">
-		<p:panel header="Cursos cadastrados" style="width:60%;"> 
-			<div style="float: left; margin-left: 55px;"><p:button value="novo curso" outcome="curso_formulario"></p:button></div>
-			<br/><br/>
-			<p:dataTable value="#{cursoBean.cursos}" var="curso" style="width:90%;">
-				<p:column headerText="Nome">
-					<h:outputText value="#{curso.nome}" />
-				</p:column>
-				<p:column headerText="Duração">
-					<h:outputText value="#{curso.ducarao}" />
-				</p:column>
-				<p:column headerText="Tipo">
-					<h:outputText value="#{curso.tipo}" />
-				</p:column>
-				<p:column headerText="Data de criação">
-					<h:outputText value="#{curso.dataCriacao}">
-						<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
-					</h:outputText>
-				</p:column>
-				<p:column>
-					<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}"></p:commandLink>
-				</p:column>
-			</p:dataTable>
+		<p:panel header="Cursos cadastrados" style="width:60%;">
+			<div style="float: left; margin-left: 55px;">
+				<p:button value="novo curso" outcome="curso_formulario"></p:button>
+			</div>
+			<br />
+			<br />
+			<h:form>
+				<p:dataTable value="#{cursoBean.cursos}" var="curso"
+					style="width:90%;">
+					<p:column headerText="Nome">
+						<h:outputText value="#{curso.nome}" />
+					</p:column>
+					<p:column headerText="Duração">
+						<h:outputText value="#{curso.ducarao}" />
+					</p:column>
+					<p:column headerText="Tipo">
+						<h:outputText value="#{curso.tipo}" />
+					</p:column>
+					<p:column headerText="Data de criação">
+						<h:outputText value="#{curso.dataCriacao}">
+							<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+						</h:outputText>
+					</p:column>
+					<p:column>
+						<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}"></p:commandLink>
+
+					</p:column>
+				</p:dataTable>
+			</h:form>
 		</p:panel>
 	</div>
 
