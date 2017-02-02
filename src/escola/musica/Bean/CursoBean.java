@@ -37,6 +37,11 @@ public class CursoBean {
 		return "curso_lista?faces-redirect=true";
 	}
 	
+	public String editar(Curso curso){
+		this.curso = curso;
+		return "curso_formulario?faces-redirect=true";
+	}
+	
 	public String getDataAtual(){
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
