@@ -45,13 +45,9 @@
 
 						<p:commandLink value="Excluir"
 							actionListener="#{cursoBean.prepararExclusao(curso)}"
-							oncomplete="PF('excluirCurso').show()"
+							oncomplete="PF('excluirCurso').show()" update="@form"
 							style="color:red; margin-left:20px;"></p:commandLink>
-
-
 					</p:column>
-
-
 				</p:dataTable>
 
 				<p:confirmDialog widgetVar="excluirCurso"
@@ -71,10 +67,5 @@
 			</h:form>
 		</p:panel>
 	</div>
-
-
-
 </h:body>
-
-
 </html>
