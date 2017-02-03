@@ -21,6 +21,7 @@
 			<br />
 			<br />
 			<h:form>
+			<p:growl/>
 				<p:dataTable value="#{cursoBean.cursos}" var="curso"
 					style="width:90%;">
 					<p:column headerText="Nome">
@@ -38,8 +39,11 @@
 						</h:outputText>
 					</p:column>
 					<p:column>
-						<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}"></p:commandLink>
-
+						<p:commandLink value="Editar" action="#{cursoBean.editar(curso)}"
+							style="color:blue;"></p:commandLink>
+							
+							<p:commandLink value="Excluir" action="#{cursoBean.excluir(curso)}"
+							style="color:red;" update="@form"></p:commandLink>
 					</p:column>
 				</p:dataTable>
 			</h:form>
