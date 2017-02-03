@@ -5,11 +5,13 @@
 	version="1.0">
 
 	<persistence-unit name="banco" transaction-type="RESOURCE_LOCAL">
-	
-		 	<!-- OBS USAR PROVIDER ABAIXO PARA HIBERNATE MAIS ATUALIZADO (ATUAL 5.2.6) (HIBERNATE.ENTITYMANAGER E HIBERNATE.CORE) -->
-		 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-			<!--	PARA VERSÕES DO HIBERNATE MAIS ANTIGA, SUAR PROVIDER ABAIXO (HIBERNATE.ENTITYMANAGER E HIBERNATE.CORE) -->
+		<!-- OBS USAR PROVIDER ABAIXO PARA HIBERNATE MAIS ATUALIZADO (ATUAL 5.2.6) 
+			(HIBERNATE.ENTITYMANAGER E HIBERNATE.CORE) -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<!-- PARA VERSÕES DO HIBERNATE MAIS ANTIGA, SUAR PROVIDER ABAIXO (HIBERNATE.ENTITYMANAGER 
+			E HIBERNATE.CORE) -->
 		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
@@ -19,9 +21,10 @@
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
 			<property name="hibernate.connection.username" value="postgres" />
 			<property name="hibernate.connection.password" value="postgres" />
-
+			<property name="hibernate.connection.autocommit" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+
 		</properties>
 
 	</persistence-unit>

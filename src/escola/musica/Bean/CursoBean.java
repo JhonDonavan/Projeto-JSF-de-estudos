@@ -33,7 +33,6 @@ public class CursoBean {
 		cursos = new CursoDAO().listarTodos();
 		curso = new Curso();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso salvo com sucesso"));
-		
 		return "curso_lista?faces-redirect=true";
 	}
 	
@@ -42,7 +41,11 @@ public class CursoBean {
 		return "curso_formulario?faces-redirect=true";
 	}
 	
-	public void excluir(Curso curso){
+	public void prepararExclusao(Curso curso){
+		this.curso = curso;
+	}
+	
+	public void excluir(){
 		new CursoDAO().excluir(curso);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso excluido com sucesso!"));
 		cursos = new CursoDAO().listarTodos();
