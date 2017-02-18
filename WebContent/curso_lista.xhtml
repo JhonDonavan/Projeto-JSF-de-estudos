@@ -49,17 +49,23 @@
 							style="color:red; margin-left:20px;"></p:commandLink>
 					</p:column>
 				</p:dataTable>
+				<br />
+				<h:commandLink>
+					<p:graphicImage />
+					<p:dataExporter type="xls" target="tbl" fileName="cars" />
+				</h:commandLink>
 
 				<p:confirmDialog widgetVar="excluirCurso"
 					message="deseja realmente excluir o curso #{cursoBean.curso.nome}">
-					<div align="center"> 
-					<p:commandButton value="Sim"
-						action="#{cursoBean.excluir()}"
-						onclick="PF('excluirCurso').hide()" update="@form"
-						styleClass="ui-confirmdialog-yes" icon="ui-icon-check">
+					<div align="center">
+						<p:commandButton value="Sim" action="#{cursoBean.excluir()}"
+							onclick="PF('excluirCurso').hide()" update="@form"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check">
 
-					</p:commandButton> <p:commandButton value="Não" onclick="PF('excluirCurso').hide()"
-						styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+						</p:commandButton>
+
+						<p:commandButton value="Não" onclick="PF('excluirCurso').hide()"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
 					</div>
 				</p:confirmDialog>
 
